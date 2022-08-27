@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 
 class OnboardButton extends StatelessWidget {
-  const OnboardButton({Key? key, required this.text}) : super(key: key);
+  const OnboardButton({Key? key, required this.text, this.ontap})
+      : super(key: key);
 
   final String text;
+  final dynamic ontap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 150,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: const Color(0xff1DB0B3),
-      ),
-      child: Center(
-        child: Text(
-          text,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        height: 50,
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: const Color(0xff1DB0B3),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: const TextStyle(
+                color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );

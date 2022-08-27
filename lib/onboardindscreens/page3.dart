@@ -1,3 +1,4 @@
+import 'package:eventapp/registrationscreens/getstarted.dart';
 import 'package:flutter/material.dart';
 
 import 'reusablewidgets.dart';
@@ -8,15 +9,23 @@ class Page3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        Heading(text: 'Find Best Event'),
-        SizedBox(height: 30),
-        Text(
+      children: [
+        const Heading(text: 'Remember your event'),
+        const SizedBox(height: 30),
+        const Text(
           'Welcome to the place \nwhere you can find events near you. \nand yes you dont do the searching. we do ',
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 30),
-        OnboardButton(text: 'Next')
+        const SizedBox(height: 30),
+        OnboardButton(
+          text: 'Get Started',
+          ontap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const GetStarted(),
+            ),
+          ),
+        )
       ],
     );
   }

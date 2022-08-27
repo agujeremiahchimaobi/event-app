@@ -9,7 +9,7 @@ class Onboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _controller = PageController();
+    final _controller = PageController(initialPage: 0);
     return Scaffold(
       backgroundColor: const Color(0xffBEC0C7),
       body: Column(
@@ -26,8 +26,9 @@ class Onboarding extends StatelessWidget {
                 SizedBox(
                   height: 230,
                   child: PageView(
+                    physics: NeverScrollableScrollPhysics(),
                     controller: _controller,
-                    children: const [Page1(), Page2(), Page3()],
+                    children: [Page1(), Page2(), Page3()],
                   ),
                 ),
                 SmoothPageIndicator(
