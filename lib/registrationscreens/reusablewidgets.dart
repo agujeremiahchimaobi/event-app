@@ -30,11 +30,13 @@ class KSignupOptionsbutton extends StatelessWidget {
 }
 
 class KinputText extends StatelessWidget {
-  const KinputText({Key? key, required this.hint, required this.icon})
+  const KinputText(
+      {Key? key, required this.hint, required this.icon, this.suffixicon})
       : super(key: key);
 
   final IconData icon;
   final String hint;
+  final IconData? suffixicon;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +55,11 @@ class KinputText extends StatelessWidget {
             // hintStyle: TextStyle(fontWeight: FontWeight.bold),
             prefixIcon: Icon(
               icon,
+              size: 20,
+              color: Colors.grey.shade600,
+            ),
+            suffixIcon: Icon(
+              suffixicon,
               size: 20,
               color: Colors.grey.shade600,
             ),
@@ -92,9 +99,9 @@ class AlreadyAndDont extends StatelessWidget {
 }
 
 class Kbutton extends StatelessWidget {
-  const Kbutton({
-    Key? key,
-  }) : super(key: key);
+  const Kbutton({Key? key, required this.text}) : super(key: key);
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -104,10 +111,10 @@ class Kbutton extends StatelessWidget {
         color: const Color(0xff1DB0B3),
         borderRadius: BorderRadius.circular(20.0),
       ),
-      child: const Center(
+      child: Center(
         child: Text(
-          'Sign In',
-          style: TextStyle(
+          text,
+          style: const TextStyle(
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),

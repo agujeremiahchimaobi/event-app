@@ -24,14 +24,12 @@ class _LoginScreenState extends State<EmailLogin> {
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20.0),
-                Text(
-                  "Welcome back you've been \nmissed",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
+                Text("Welcome back you've been \nmissed",
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center),
                 SizedBox(height: 20.0),
                 KinputText(icon: Icons.email_outlined, hint: 'Email'),
                 SizedBox(height: 20.0),
@@ -39,7 +37,9 @@ class _LoginScreenState extends State<EmailLogin> {
                 SizedBox(height: 30.0),
                 Text('forgot Password?'),
                 SizedBox(height: 30.0),
-                Kbutton(),
+                Kbutton(
+                  text: 'Sign In',
+                ),
                 SizedBox(height: 20.0),
                 Text('Or'),
                 SizedBox(height: 20.0),
