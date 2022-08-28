@@ -26,7 +26,6 @@ class Onboarding extends StatelessWidget {
                 SizedBox(
                   height: 230,
                   child: PageView(
-                    physics: NeverScrollableScrollPhysics(),
                     controller: _controller,
                     children: [Page1(), Page2(), Page3()],
                   ),
