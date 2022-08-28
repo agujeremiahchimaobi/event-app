@@ -41,6 +41,7 @@ class KinputText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 20),
       height: 60,
       decoration: BoxDecoration(
         color: Colors.grey.shade200,
@@ -72,27 +73,32 @@ class KinputText extends StatelessWidget {
 }
 
 class AlreadyAndDont extends StatelessWidget {
-  const AlreadyAndDont({Key? key, required this.text1, required this.text2})
+  const AlreadyAndDont(
+      {Key? key, required this.text1, required this.text2, this.ontap})
       : super(key: key);
 
   final String text1;
   final String text2;
+  final dynamic ontap;
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: text1,
-            style: const TextStyle(color: Colors.grey),
-          ),
-          TextSpan(
-            text: text2,
-            style: const TextStyle(
-              color: Color(0xff1DB0B3),
+    return GestureDetector(
+      onTap: ontap,
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: text1,
+              style: const TextStyle(color: Colors.grey),
             ),
-          )
-        ],
+            TextSpan(
+              text: text2,
+              style: const TextStyle(
+                color: Color(0xff1DB0B3),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
