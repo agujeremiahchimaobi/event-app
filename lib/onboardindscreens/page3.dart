@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'reusablewidgets.dart';
 
 class Page3 extends StatelessWidget {
-  const Page3({Key? key}) : super(key: key);
+  const Page3({Key? key, this.ontap}) : super(key: key);
 
+  final dynamic ontap;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -18,15 +19,26 @@ class Page3 extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
-          OnboardButton(
-            text: 'Get Started',
-            ontap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const GetStarted(),
+          GestureDetector(
+            onTap: ontap,
+            child: Container(
+              height: 50,
+              width: 150,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color(0xff1DB0B3),
+              ),
+              child: const Center(
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -50,7 +50,7 @@ class Success extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
