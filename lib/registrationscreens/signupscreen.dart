@@ -1,3 +1,4 @@
+import 'package:eventapp/registrationscreens/forgotpassword.dart';
 import 'package:eventapp/registrationscreens/reusablewidgets.dart';
 import 'package:flutter/material.dart';
 
@@ -34,9 +35,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const KinputText(
                   hint: '************', icon: Icons.lock_outline_rounded),
               const SizedBox(height: 30),
-              const Text(
-                'Forgot password?',
-                style: TextStyle(fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword())),
+                child: const Text(
+                  'Forgot password?',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(height: 30),
               const Kbutton(text: 'Sign Up'),

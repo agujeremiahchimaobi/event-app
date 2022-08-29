@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class KSignupOptionsbutton extends StatelessWidget {
   const KSignupOptionsbutton(
@@ -105,24 +106,82 @@ class AlreadyAndDont extends StatelessWidget {
 }
 
 class Kbutton extends StatelessWidget {
-  const Kbutton({Key? key, required this.text}) : super(key: key);
+  const Kbutton({Key? key, required this.text, this.ontap}) : super(key: key);
 
   final String text;
+  final dynamic ontap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: const Color(0xff1DB0B3),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: const TextStyle(
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class KPreviousBtn extends StatelessWidget {
+  const KPreviousBtn({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topLeft,
+      child: GestureDetector(
+        onTap: () => Navigator.pop(context),
+        child: CircleAvatar(
+          radius: 20,
+          backgroundColor: Colors.grey.shade500,
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class KOtpField extends StatelessWidget {
+  const KOtpField({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
       decoration: BoxDecoration(
-        color: const Color(0xff1DB0B3),
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Center(
-        child: Text(
-          text,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-        ),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: const Color(0xff1DB0B3), width: 2)),
+      height: 55,
+      width: 60,
+      child: TextFormField(
+        onChanged: (value) {
+          if (value.length == 1) {
+            FocusScope.of(context).nextFocus();
+          }
+        },
+        decoration: const InputDecoration(border: InputBorder.none),
+        style: const TextStyle(fontSize: 30, color: Color(0xff1DB0B3)),
+        keyboardType: TextInputType.number,
+        textAlign: TextAlign.center,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(1),
+          FilteringTextInputFormatter.digitsOnly
+        ],
       ),
     );
   }

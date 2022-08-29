@@ -8,25 +8,27 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Heading(text: 'Remember your event'),
-        const SizedBox(height: 30),
-        const Text(
-          'Welcome to the place \nwhere you can find events near you. \nand yes you dont do the searching. we do ',
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 30),
-        OnboardButton(
-          text: 'Get Started',
-          ontap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const GetStarted(),
-            ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const Heading(text: 'Remember your event'),
+          const SizedBox(height: 30),
+          const Text(
+            'Welcome to the place \nwhere you can find events near you. \nand yes you dont do the searching. we do ',
+            textAlign: TextAlign.center,
           ),
-        )
-      ],
+          const SizedBox(height: 30),
+          OnboardButton(
+            text: 'Get Started',
+            ontap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const GetStarted(),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
